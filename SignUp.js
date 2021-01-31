@@ -7,21 +7,17 @@ import {
   Button
 } from 'react-native';
 
-const Login = ({ navigation }) => {
+const SignUp = ({ navigation }) => {
   return (
   <View style={styles.container}>
     <Text style={styles.header}>Welcome to MatchFly</Text>
     <TextInput style={styles.input} placeholder="User Name" />
     <TextInput secureTextEntry={true} style={styles.input} placeholder="Password" />
+    <TextInput secureTextEntry={true} style={styles.input} placeholder="Confirm Password" />
     <Button
-    title="Sign In"
+    title="Sign Up"
     style={styles.signInButton}
     onPress={() => navigation.navigate('Home')}/>
-    <Button
-    title="Don't have an account yet? Sign Up"
-    color="#b2bec3"
-    onPress={() => navigation.navigate('SignUp')}
-    style={styles.signUpButton}/>
    </View>
   );
 };
@@ -50,16 +46,6 @@ const styles = StyleSheet.create({
           borderColor: 'gray',
           borderWidth: 1
     },
-   signUpButton: {
-//          position: 'absolute',
-//          bottom: 0,
-//          marginTop: 100,
-//          backgroundColor: "red",
-//          height: 20,
-//          width: 40,
-//          borderColor: 'gray',
-//          borderWidth: 1
-    },
 });
 
-export default Login;
+export default SignUp;

@@ -1,6 +1,7 @@
-//import 'react-native-gesture-handler';
-
+import 'react-native-gesture-handler';
 import React, {useState} from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import {
   SafeAreaView,
   StyleSheet,
@@ -22,12 +23,25 @@ import {
 
 import HomeScreen from './HomeScreen'
 import Login from './Login'
+import SignUp from './SignUp'
 
+const Stack = createStackNavigator();
 const App: () => React$Node = () => {
-const [isAuth, setIsAuth] = useState(false)
+//const [isAuth, setIsAuth] = useState(false)
   return (
 //    <>
-      isAuth ? <HomeScreen /> : <Login setIsAuth={setIsAuth} />
+//      isAuth ? <HomeScreen /> : <Login setIsAuth={setIsAuth} />
+      <NavigationContainer>
+            <Stack.Navigator>
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="SignUp" component={SignUp} />
+              <Stack.Screen
+                name="Home"
+                component={HomeScreen}
+                options={{ title: 'Welcome' }}
+              />
+            </Stack.Navigator>
+      </NavigationContainer>
 //        <Login />
 //        <HomeScreen />
 //      {isAuth && <Login />}
